@@ -1,12 +1,10 @@
-
 ---
 layout: post
 title: "Gracefully Integrating Error Handling and Logging in Python"
 description: "Logging to a custom table and error handling can both be tricky, but they actually go well together."
 tags:
   - Blogging
-  - SQL
-  - Analysis
+  - Python
 ---
 
 ## Back to The Weather Data
