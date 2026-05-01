@@ -15,7 +15,7 @@ I wrote a few days ago about plots and my affinity for moving averages as smooth
 
 ### No Averaging, Just Plotting Raw Data
 
-<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/d123db94-cd80-4f53-a705-a84c9ea1aa32" />
+<img width="649" height="350" alt="image" src="https://github.com/user-attachments/assets/d123db94-cd80-4f53-a705-a84c9ea1aa32" />
 
 
 
@@ -23,7 +23,7 @@ This plot is very spikey and what we would call "jittery" or "noisy", in that it
 
 ### Two-Term Moving Average
 
-<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/f4b8e4b8-f2be-43ef-86bf-5af8c301239e" />
+<img width="649" height="350" alt="image" src="https://github.com/user-attachments/assets/f4b8e4b8-f2be-43ef-86bf-5af8c301239e" />
 
 
 
@@ -32,7 +32,7 @@ It's a little bit smoother, but still pretty jittery. You'll notice that the spi
 
 ### Four-Term Moving Average
 
-<img width="700" height="350" alt="Image" src="https://github.com/user-attachments/assets/16078dc6-c2ff-4880-9d4f-489409e7ff8f" />
+<img width="649" height="350" alt="Image" src="https://github.com/user-attachments/assets/16078dc6-c2ff-4880-9d4f-489409e7ff8f" />
 
 
 
@@ -41,7 +41,7 @@ Now we can really see the smoothing taking effect, with four terms to distribute
 
 ### Eight-Term Moving Average
 
-<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/5490b20d-0b3d-4f4a-9fa0-b60a970f8482" />
+<img width="649" height="350" alt="image" src="https://github.com/user-attachments/assets/5490b20d-0b3d-4f4a-9fa0-b60a970f8482" />
 
 
 Now this right here? This is a nice plot. Very smooth, easy to see trends over both the long run and individual short-run periods. In my experience, this type of plot is much more appealing to busy executives. One thing to be wary about is using too large of a moving average; most statisticians would be wary of an eight-term moving average because it will probably distribute the noise *too* well, but it works out here because our time interval is hourly, so we're only ever averaging together eight hours of prediction errors, and ambient outdoor temperatures don't generally change that much over the course of just a day.[^3]
