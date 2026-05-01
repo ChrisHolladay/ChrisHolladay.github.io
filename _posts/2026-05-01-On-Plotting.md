@@ -38,7 +38,9 @@ This plot has upsides and downsides:
 
 #### 2. Variable Missingness:
 
-This is another plot I made for a paper over variable selection for diagnosis of a particular disease. I didn't discover them until I got to grad school, but missingness plots are by far my favorite way to examine variables before putting them into a model. Missing data is a huge problem that's often overlooked by poorly-trained Data Scientists, and it'
+This is another plot I made for a paper over variable selection for diagnosis of a particular disease. I didn't discover them until I got to grad school, but missingness plots are by far my favorite way to examine variables before putting them into a model. Missing data is a huge problem that's often overlooked by poorly-trained Data Scientists, and it's an issue that will blow up your model performance. Maybe at some point I'll talk about missing data interpolation; I think it's fascinating just when you're doing some basic linear/quadratinc interpolation, but I saw a talk a few years ago about using wavelet splines for interpolation, and I have concerns about overfitting and whether the juice is worth the squeeze. Higher-order spline models always take a while to tune, and I'm not sure the performance just for interpolating missing variables is necessarily that much better than a basic linear/quadratic regression.
+
+But I digress again. Here's a standard missingness plot.
 
 <img width="534" height="413" alt="Image" src="https://github.com/user-attachments/assets/baee98ee-bc95-473a-a959-2b84babeab3b" />
 
