@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "On Plotting - Moving Averages"
