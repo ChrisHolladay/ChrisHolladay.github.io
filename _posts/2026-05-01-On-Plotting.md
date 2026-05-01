@@ -61,19 +61,19 @@ This is a plot I made some years ago when I was consulting for a few researchers
 Okay, now what about doing plots well? I've been letting my weather prediction scraper run for a few weeks, so now it's probably a decent time to start looking at the data. My data includes the prediction for the temperature in Dallas at a given time point, taken each day for the seven days running up to the predicted date, so I can use those seven predictions and the true temperature at each time point to get the error residuals for each of those seven predictions. Like I said above, I love a rolling/moving average plot to smooth the curves, so I can create a nice seven-day moving average for each error term to show the average error over a week, looking out *n* many days.
 I leave those indexed by a generic time variable *t*, and throw it into R (using GGPlot2, because it makes extending your plots drastically easier than the base R plotting functionality), and this is what I get:
 
-<img width="496" height="325" alt="Image" src="https://github.com/user-attachments/assets/2ad9c968-0af4-4dc7-a369-030b5aee2d76" />
+<img width="508" height="382" alt="Image" src="https://github.com/user-attachments/assets/2ad9c968-0af4-4dc7-a369-030b5aee2d76" />
 
 That's kind of a tutti-frutti mess. Only things I can take away from that are from the spikes, and I can barely tell whether the errors are decreasing as the predictions get closer to their prediction time. First things first, those labels need to be fixed. Indexing by *t* tells us nothing about actual dates, which would be nice for all the Dallas denizens who know what the weather was like for those dates, and I already mentioned before that I like angled labels on the horizontal axis, so let's try that:
 
-<img width="1011" height="661" alt="Image" src="https://github.com/user-attachments/assets/916cc5fe-9623-4b54-954a-4140943fb93e" />
+<img width="508" height="382" alt="Image" src="https://github.com/user-attachments/assets/916cc5fe-9623-4b54-954a-4140943fb93e" />
 
 That's better, but those colors need to be fixed. For plots like this, where the factor distinguishing the lines has a distinct ordering to the factor levels, I like to use a monochromatic scale for the colors, getting darker as the levels progress. It's a bit of a gloomy day out today, so let's try blue:
 
-<img width="1011" height="661" alt="Image" src="https://github.com/user-attachments/assets/97e2e78b-5f72-447c-b785-42bbff7df5f2" />
+<img width="508" height="382" alt="Image" src="https://github.com/user-attachments/assets/033999b0-f563-41e8-b2a8-8cac150351f4" />
 
 That's much better. You can see that the errors centralize and stabilize on the darker lines, which tells you that the errors are stabilizing as the predictions get closer to their prediction date. This is what I meant way back at the beginning about the details of a plot working to accentuate the points/trends/story that's being conveyed.
 Overall, I'm pretty happy with that plot. But there's a 538 theme for GGPlot2, so what happens if I try that?
 
-<img width="1011" height="661" alt="Image" src="https://github.com/user-attachments/assets/863036ec-e384-4b66-999a-082408bab630" />
+<img width="508" height="382" alt="Image" src="https://github.com/user-attachments/assets/863036ec-e384-4b66-999a-082408bab630" />
 
 Eh, maybe not so much with the blues. I suppose this is an example of trying to do a little too much.
