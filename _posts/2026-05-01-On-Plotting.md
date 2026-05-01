@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "On Plotting - Time Series Data with Iterations"
@@ -8,6 +7,7 @@ tags:
   - Statistics
   - Analysis
 ---
+
 
 ## Background
 
