@@ -7,7 +7,9 @@ tags:
   - Python
 ---
 
-## Back to The Weather Data
+## Graceful Error Handling and Logging in Python
+
+### Back to The Weather Data
 
 Revisiting my previous posts about scraping weather data from the Open-Meteo API, I recently discovered that they also provide historical temps at a provided latitute/longitude, which is perfect for my error analysis. I was previously planning to just use the day-of predictions as a proxy for true temps, but this allows us to instead both get an accurate error for each time period and to use that day-of prediction for a error observation on each prediction point. Every statistician's favorite phrase: "We got more data!"
 So my first approach was just to replicate my process for the original script. Pretty easy set of steps:
