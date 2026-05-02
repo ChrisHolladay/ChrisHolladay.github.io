@@ -9,7 +9,9 @@ tags:
 ---
 
 
-## Background
+## On Plotting
+
+### Background
 
 I've spent most of my professional and educational careers working with data, and every data professional will tell you that one of the hardest parts of the entire "telling a story" notion that we like to talk about in the industry isn't necessarily getting clean data (because data is never *completely* clean, it's only ever clean *enough*), nor is it getting your data into the right place (this can be tough, but many of us find it so interesting that we go do it professionally as Data Engineers); it's visualizing the data. SalesForce even puts on a pretty impressive Tableau conference every summer out in San Diego just for data viz nerds. I've got to tell you that if you go to Tableau Conference and you scoff like I did when I saw the signs for one of their big evening events being something called "Iron Viz", just trust me and go check it out. Get there ten minutes early, because it's packed, and prepare to have your mind blown by what some of those folks can do on a time crunch.
 But I digress, data viz is half of the endgame for most of the data work we do; the other half is more results-oriented: statistical/ML-based inference or some kind of data reporting up to regulatory agencies. That means that, if you want to be effective with how you present your data to tell the story, you need to think about the details. You absolutely *can* just throw data out there on slides or on dashboards, but then you're just shooting yourself in the foot right out of the gate. You want your audience/viewers to focus on the story you're trying to tell them, so that means that you need to reduce the distractions like clashing colors or difficult-to-process formatting. After you reduce the distractions, then it's time to think about actually making changes that accentuate the story you want to tell.
