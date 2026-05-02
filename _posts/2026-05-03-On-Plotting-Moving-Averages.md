@@ -8,7 +8,9 @@ tags:
   - Analysis
 ---
 
-## Background
+## On Plotting - Moving Averages
+
+### Background
 
 I wrote a few days ago about plots and my affinity for moving averages as smoothers in a few cases, but I thought it might be worth writing a short post illustrating the differences in a plot due to moving averages. To that end, I want to look at four plots that will look awfully familiar if you skimmed my last post:
 
