@@ -7,8 +7,9 @@ tags:
   - SQL
   - Analysis
 ---
+## Data Formats - Long vs. Short
 
-## Working with Weather Prediction Data
+### Working with Weather Prediction Data
 
 One of my current projects with my homelab, which you can read about in my last post if you're interested in the data collection/scraping process, is an analysis of the error convergence for our local weather forecasts. The quick and dirty is that there's a very convenient API from Open-Meteo that provides access to the weather forecasts on an hour-by-hour basis over up to the next seven days from the time of the query, so I've been pulling that data for some days now and this makes the seventh day since I put that into production on my homelab, so now I'm curious what it looks like.
 That then begs the question: What _should_ your data look like for conducting this kind of analysis? There's a real dichotomy in how we format our data for analyses, and that's something I've run into a lot with folks in the work world. My education is in Statistics/Math and my work experience is mostly in private equity and healthcare (I know, everyone's two favorite industries), so that's meant that quite often I've had to be the person who translates needs/demands/wants between the data teams and the business teams (groups like FP&A, Accounting, Ops, etc.). Skip ahead if you've already heard this before, but business side folks almost always want their data in "wide" format, where your individual dimension-grain unit (or an observation unit, for the statisticians out there) has one row and all the the various time-point/fact-grain observations for that unit are in their own columns on that same row. On the other hand, data folks tend to prefer "long" formatted data, where there are many more rows, but each row is a single observation/time point. This conforms to the dimensional model we all learned early on in our data careers, and it also happens to be the necessary format for most statistical analysis packages that operate with each of these as a separate point.
