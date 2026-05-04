@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "On Plotting - Moving Averages"
+title: "On Plotting - The Magic of Moving Averages"
 description: "A quick graphical examination of moving averages as smoothers"
 tags:
   - Blogging
