@@ -48,6 +48,6 @@ Now we can really see the smoothing taking effect, with four terms to distribute
 Now this right here? This is a nice plot. Very smooth, easy to see trends over both the long run and individual short-run periods. In my experience, this type of plot is much more appealing to busy executives. One thing to be wary about is using too large of a moving average; most statisticians would be wary of an eight-term moving average because it will probably distribute the noise *too* well, but it works out here because our time interval is hourly, so we're only ever averaging together eight hours of prediction errors, and ambient outdoor temperatures don't generally change that much over the course of just a day.[^3]
 
 
-[^1] Or, as an economist would say, the short-run mean is stable.
-[^2] Greater errors cause variance to increase, and most people would just talk about this in terms of the variance rather than the specific error trends.
-[^3] Except when there are major weather phenomena, I suppose, and it's probably worth noting that we had tornadoes here in north Texas this week. Whoops. Might be better to use a four- or five-term average, then.
+[^1]: Or, as an economist would say, the short-run mean is stable.
+[^2]: Greater errors cause variance to increase, and most people would just talk about this in terms of the variance rather than the specific error trends.
+[^3]: Except when there are major weather phenomena, I suppose, and it's probably worth noting that we had tornadoes here in north Texas this week. Whoops. Might be better to use a four- or five-term average, then.
