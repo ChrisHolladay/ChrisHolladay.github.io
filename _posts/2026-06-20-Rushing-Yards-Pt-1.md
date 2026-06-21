@@ -24,7 +24,7 @@ After we make that decision on our Y-variable, it's time to consider what qualif
 
 With those considerations in might, Let's start with a couple basic plots. You can always go crazy doing plots for your EDA, so I figure I'll start easy here. Here's what the total yardage split looks like, and the Z-scores for the total yardages:
 
-<img width="1000" height="500" alt="Image" src="https://github.com/user-attachments/assets/b10663ac-3cce-452d-bf8b-1d24c6b8fdc2" />
+<img width="750" height="375" alt="Image" src="https://github.com/user-attachments/assets/b10663ac-3cce-452d-bf8b-1d24c6b8fdc2" />
 
 Nothing too terribly informative about that. I'm not seeing any particular trends between the day and night rushing totals, either in totals or in the Z-scores, but I was absolutely fascinated by those three points at the top, in the 400+ territory. Looks like one day game and two night games, and those are:
   1. Kansas State's 472 rushing yards on the road at Utah - Utah had to come back and win this game 51-47 in the fourth quarter, and it looks like a barnburner.
@@ -57,7 +57,9 @@ That model might be statistically significant (the F-test for model significance
 This is where we have two possible modeling strategies:
   1. We model the kickoff time, and include the school as a simple factor variable. This doesn't really answer the question, because the school is an indicator variable that won't interact with the kickoff time, so it just affects the intercent, and that'll just raise/lower the line for schools that are all-around better at running the ball.
   2. We model this as an interaction model. We can include kickoff time as a solo variable if we want to draw conclusions about all of the teams together, but this modeling approach gives us the opportunity to control for school and see which teams ran the ball better at night than during the day, on their own:
+     
      <img width="569" height="362" alt="Image" src="https://github.com/user-attachments/assets/c519367f-85a8-4997-a4d3-db235bad2d1c" />
+
 
 This is an interesting model. We'll have to look at the diagnostics to be sure, but this indicates a much stronger model. These hour-by-hour gauges on time are still quite small, what if we fully bucket all of these games into night or day games, and we just want to see how much better each team runs the ball at night versus during the day? This approach naturally runs headlong into some _really_ flagrant small-sample problems, but this is just a quick and dirty effect size estimation. Of note, since we've reduced this to the effect of two factor variables on a continuous variable, this has become a simple two-way ANOVA model.
 
