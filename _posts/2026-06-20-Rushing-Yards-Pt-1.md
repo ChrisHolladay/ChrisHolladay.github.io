@@ -24,7 +24,7 @@ After we make that decision on our Y-variable, it's time to consider what qualif
 
 With those considerations in might, Let's start with a couple basic plots. You can always go crazy doing plots for your EDA, so I figure I'll start easy here. Here's what the total yardage split looks like, and the Z-scores for the total yardages:
 
-<img width="1563" height="500" alt="Image" src="https://github.com/user-attachments/assets/b10663ac-3cce-452d-bf8b-1d24c6b8fdc2" />
+<img width="1000" height="500" alt="Image" src="https://github.com/user-attachments/assets/b10663ac-3cce-452d-bf8b-1d24c6b8fdc2" />
 
 Nothing too terribly informative about that. I'm not seeing any particular trends between the day and night rushing totals, either in totals or in the Z-scores, but I was absolutely fascinated by those three points at the top, in the 400+ territory. Looks like one day game and two night games, and those are:
   1. Kansas State's 472 rushing yards on the road at Utah - Utah had to come back and win this game 51-47 in the fourth quarter, and it looks like a barnburner.
@@ -33,7 +33,7 @@ Nothing too terribly informative about that. I'm not seeing any particular trend
 
 With no notable trends showing up here, this is a good time to move on to yards per carry:
 
-<img width="700" height="355" alt="Image" src="https://github.com/user-attachments/assets/d5ed770a-2280-4316-ba2f-49f8e1a79179" />
+<img width="700" height="335" alt="Image" src="https://github.com/user-attachments/assets/d5ed770a-2280-4316-ba2f-49f8e1a79179" />
 
 There *might* be a slight trend here where YPC positively trends with time, but it's not strong, and the variance is quite large. This is about when I start thinking about some kind of transform to suppress the potentially excessive variance, but that'll depend on how the model diagnostics look like. If we just throw a linear regression with a CI on this plot, with no regard for using robust estimators or checking those model diagnostics (which we can do as a first pass, since we're not making inferences), here's what that line looks like:
 
@@ -41,7 +41,7 @@ There *might* be a slight trend here where YPC positively trends with time, but 
 
 The improvement based on time is pretty weak, just 0.089 YPC per hour later that the game kicks off; that means that the expected difference between a game with a noon kickoff and a night game with the classic 6 PM kickoff would be just 0.534 yards per carry; that's not even worth considering. Next up is trying to standardize the variance and mitigate the excess variance, and my favorite default transforms are natural log and square root, so let's take a look at what those do to yards per carry:
 
-<img width="1113" height="558" alt="Image" src="https://github.com/user-attachments/assets/040bee4f-4c27-4731-abb2-61c786b7300b" />
+<img width="700" height="335" alt="Image" src="https://github.com/user-attachments/assets/040bee4f-4c27-4731-abb2-61c786b7300b" />
 
 Once again, there's not a particularly distinct trend in either plot. The one thing here that pops out is the one game with a sub-1.00 YPC in the entire data set is TCU's performance against Arizona State[^5], and that's largely because TCU had three things working against them:
   1. TCU was an air raid team, so running the ball was never their forte.
@@ -50,7 +50,7 @@ Once again, there's not a particularly distinct trend in either plot. The one th
 
 There may not be much to say about this model, and before bothering to dig into the diagnostics, the model summary is similarly unpromising. Non-statisticians being taught to use R-squared as a prozy measure of model strength/significance/utility is a perpetual annoyance to statisticians, but it does have value when you recognize that it expresses the amount of variance in the output that's explained by the covariate(s), so while it's not great for setting a level on model strength, it _is_ useful for setting a floor on model strength. All that to say, a very low R-squared indicates that a model's not great for making predictions:
 
-<img width="416" height="176" alt="Image" src="https://github.com/user-attachments/assets/2688913a-71e4-4b24-b699-c036f3286057" />
+<img width="570" height="240" alt="Image" src="https://github.com/user-attachments/assets/2688913a-71e4-4b24-b699-c036f3286057" />
 
 That model might be statistically significant (the F-test for model significance), and the predictors might even be viable for inference (which you can't assume on-spec, since we haven't done any model diagnostics, and we already have reason to assume that the errors will be non-normal), but it's just a plain ol' bad model for predicting output. On thing we can do, however, is control for the particular school and then instead predict Z-scores[^6] rather than pure yardage.
 
@@ -73,7 +73,7 @@ I've been mentioning all throughout this post about needing to do model diagnost
 
 This one's always the easiest to check, you can extract the residuals from the `lm()` model object and then toss them into `qqnorm()` to get the Q-Q plot for the residuals, and look for reasonable linearity. Unfortunately for us, this doesn't look particularly linear to me:
 
-<img width="868" height="573" alt="Image" src="https://github.com/user-attachments/assets/a1b393a8-e6d6-4e2f-b62d-0fd377038c27" />
+<img width="435" height="285" alt="Image" src="https://github.com/user-attachments/assets/a1b393a8-e6d6-4e2f-b62d-0fd377038c27" />
 
 This has mixed consequences. I always come back to [this paper](https://www.carlislerainey.com/papers/heavy-tails.pdf) when I have to remind myself of the consequences of non-normal errors in linear regression, and the authors state it pretty clearly[^8]: 
 
@@ -85,18 +85,18 @@ I suspect this is going to go hand-in-hand with an even bigger assumption violat
 
 This one has a few different ways you can check it. I sometimes default to the first way I learned it, where you just plot your standardized residuals against your predictors, but the weird way to do it that I picked up in grad school is to plot the residuals against the values of the Y-values themselves. Now I tend more toward the latter, partially because R will kick out that plot for you as part of the model diagnostics when you run `plot(model)`, but we'll stick with the former because the interpretation is somewhat easier in passing:
 
-<img width="888" height="637" alt="Image" src="https://github.com/user-attachments/assets/6f73d233-ab04-4479-a8e8-682ba583141e" />
+<img width="445" height="320" alt="Image" src="https://github.com/user-attachments/assets/6f73d233-ab04-4479-a8e8-682ba583141e" />
 
 So what happens if we put a line on that plot? Turns out it has both upsides and downsides: the good news is that the slope is vanishingly small, so we can almost conclude that the variance does not trend with the predictor. The downside is that the predictor is incredibly statistically insignificant, but we don't care so much about the significance estimate here as we do just the parameter estimate. This might be enough to be informative in some cases, but just based on the shape of the standardized residuals plot, I'm still slightly suspicious.
 
-<img width="889" height="735" alt="Image" src="https://github.com/user-attachments/assets/ff6ac2c3-86e2-4705-9628-968ea0581cb9" />
+<img width="845" height="370" alt="Image" src="https://github.com/user-attachments/assets/ff6ac2c3-86e2-4705-9628-968ea0581cb9" />
 
 
 ### Robust Estimators:
 
 When you have confirmed that your assumptions are violated, you can either pivot your modeling strategy entirely to another model that's robust to the issues you've identified, or you can modify your existing strategy; to that end, we have the terrific HC3 estimators, which are the gold standard for standard error estimators in the case that the you have or suspect heretoskedasticity. So this is what the tests of significance look like when conducted on the basic model, using the HC3 errors:
 
-<img width="406" height="91" alt="Image" src="https://github.com/user-attachments/assets/0415a6a2-934a-4acc-a95b-10028f4d5a7c" />
+<img width="406" height="123" alt="Image" src="https://github.com/user-attachments/assets/0415a6a2-934a-4acc-a95b-10028f4d5a7c" />
 
 And then, when we look at the simple interaction model to see which schools run the ball better (or worse) at night than during day games, we get these results:
 
