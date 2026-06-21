@@ -22,7 +22,22 @@ After we make that decision on our Y-variable, it's time to consider what qualif
 
 ### Basics
 
-With those considerations in might, Let's start with a couple basic plots. You can always go crazy doing plots for your EDA, so I figure I'll start easy here.
+With those considerations in might, Let's start with a couple basic plots. You can always go crazy doing plots for your EDA, so I figure I'll start easy here. Here's what the total yardage split looks like, and the Z-scores for the total yardages:
+
+<img width="1563" height="735" alt="Image" src="https://github.com/user-attachments/assets/b10663ac-3cce-452d-bf8b-1d24c6b8fdc2" />
+
+Nothing too terribly informative about that. I'm not seeing any particular trends between the day and night rushing totals, either in totals or in the Z-scores, but I was absolutely fascinated by those three points at the top, in the 400+ territory. Looks like one day game and two night games, and those are:
+  1. Kansas State's 472 rushing yards on the road at Utah - Utah had to come back and win this game 51-47 in the fourth quarter, and it looks like a barnburner.
+  2. BYU's 468 yards at home against Portland State - There's not much to say about this one, BYU just racked up stats against a bad FCS team.
+  3. Utah's 422 yards at home against Colorado - Utah had the highest rushing average per game in the conference for a reason.
+
+With no notable trends showing up here, this is a good time to move on to yards per carry:
+<img width="838" height="735" alt="Image" src="https://github.com/user-attachments/assets/11c7f6d9-9db7-41b1-8553-0392405ea998" />
+
+There *might* be a slight trend here where YPC positively trends with time, but it's not strong, and the variance is quite large. This is about when I start thinking about some kind of transform to suppress the potentially excessive variance, but that'll depend on how the model diagnostics look like. If we just throw a linear regression with a CI on this plot, with no regard for using robust estimators or checking those model diagnostics (which we can do as a first pass, since we're not making inferences), here's what that line looks like:
+<img width="478" height="314" alt="Image" src="https://github.com/user-attachments/assets/8cc48a01-f891-4adf-b4df-358ff73855d6" />
+
+The improvement based on time is pretty weak, just 0.089 YPC per hour. What happens if we 
 
 
 
@@ -32,18 +47,16 @@ With those considerations in might, Let's start with a couple basic plots. You c
 
 
 
-
-
-[^1] I was never much of a college football fan, despite going to college back when my undergrad had one of the best offenses in the nation every year, but I picked up college football from my grandmother. She was a lifelong fan of the University of Texas Longhorns, and so I habitually root for UT as well, despite attending one of UT's two arch-rivals for my graduate school work (gig 'em!). 
-[^2] My favorite example of this is the [2023 UTSA-UNT game](https://www.espn.com/college-football/matchup/_/gameId/401531399), which was painful to watch as a UNT fan, but it was incredible to watch as a general fan of Jeff Traylor's offenses at UTSA.
-[^3] Averaging is easily the most common measure of central tendency, but it's very sensitive to outliers, which are common in measuring yardage from football (see: the entire study of explosive plays). While there are alternative measures of averaging that fix that make the mean more robust to outliers (I'm particularly partial to the trimean and light winsorizing), the median is computationally easier in most cases, and doesn't require explaining a new measure to non-technical or less-technical audiences.
-[^4] Maybe their efficiency, because an ordinal ranking for just their rushing defense can have problems as a covariate unless you handle the ordinal measures in a specific way)
-[^5] 
-[^6] 
-[^7] 
-[^8] 
-[^9] 
-[^10] 
+[^1]: I was never much of a college football fan, despite going to college back when my undergrad had one of the best offenses in the nation every year, but I picked up college football from my grandmother. She was a lifelong fan of the University of Texas Longhorns, and so I habitually root for UT as well, despite attending one of UT's two arch-rivals for my graduate school work (gig 'em!). 
+[^2]: My favorite example of this is the [2023 UTSA-UNT game](https://www.espn.com/college-football/matchup/_/gameId/401531399), which was painful to watch as a UNT fan, but it was incredible to watch as a general fan of Jeff Traylor's offenses at UTSA.
+[^3]: Averaging is easily the most common measure of central tendency, but it's very sensitive to outliers, which are common in measuring yardage from football (see: the entire study of explosive plays). While there are alternative measures of averaging that fix that make the mean more robust to outliers (I'm particularly partial to the trimean and light winsorizing), the median is computationally easier in most cases, and doesn't require explaining a new measure to non-technical or less-technical audiences.
+[^4]: Maybe their efficiency, because an ordinal ranking for just their rushing defense can have problems as a covariate unless you handle the ordinal measures in a specific way)
+[^5]: 
+[^6]: 
+[^7]: 
+[^8]: 
+[^9]: 
+[^10]: 
 
 
 
