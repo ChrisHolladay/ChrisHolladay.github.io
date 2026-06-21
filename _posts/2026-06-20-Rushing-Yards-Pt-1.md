@@ -24,9 +24,8 @@ After we make that decision on our Y-variable, it's time to consider what qualif
 
 With those considerations in might, Let's start with a couple basic plots. You can always go crazy doing plots for your EDA, so I figure I'll start easy here. Here's what the total yardage split looks like, and the Z-scores for the total yardages:
 
-<p align="center">
-  <img width="750" height="375" alt="Image" src="https://github.com/user-attachments/assets/b10663ac-3cce-452d-bf8b-1d24c6b8fdc2" />
-</p>
+<img width="750" height="375" alt="Image" src="https://github.com/user-attachments/assets/b10663ac-3cce-452d-bf8b-1d24c6b8fdc2" />
+
 
 Nothing too terribly informative about that. I'm not seeing any particular trends between the day and night rushing totals, either in totals or in the Z-scores, but I was absolutely fascinated by those three points at the top, in the 400+ territory. Looks like one day game and two night games, and those are:
   1. Kansas State's 472 rushing yards on the road at Utah - Utah had to come back and win this game 51-47 in the fourth quarter, and it looks like a barnburner.
