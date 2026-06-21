@@ -89,14 +89,14 @@ This one has a few different ways you can check it. I sometimes default to the f
 
 So what happens if we put a line on that plot? Turns out it has both upsides and downsides: the good news is that the slope is vanishingly small, so we can almost conclude that the variance does not trend with the predictor. The downside is that the predictor is incredibly statistically insignificant, but we don't care so much about the significance estimate here as we do just the parameter estimate. This might be enough to be informative in some cases, but just based on the shape of the standardized residuals plot, I'm still slightly suspicious.
 
-<img width="845" height="370" alt="Image" src="https://github.com/user-attachments/assets/ff6ac2c3-86e2-4705-9628-968ea0581cb9" />
+<img width="425" height="370" alt="Image" src="https://github.com/user-attachments/assets/ff6ac2c3-86e2-4705-9628-968ea0581cb9" />
 
 
 ### Robust Estimators:
 
 When you have confirmed that your assumptions are violated, you can either pivot your modeling strategy entirely to another model that's robust to the issues you've identified, or you can modify your existing strategy; to that end, we have the terrific HC3 estimators, which are the gold standard for standard error estimators in the case that the you have or suspect heretoskedasticity. So this is what the tests of significance look like when conducted on the basic model, using the HC3 errors:
 
-<img width="406" height="123" alt="Image" src="https://github.com/user-attachments/assets/0415a6a2-934a-4acc-a95b-10028f4d5a7c" />
+<img width="500" height="115" alt="Image" src="https://github.com/user-attachments/assets/0415a6a2-934a-4acc-a95b-10028f4d5a7c" />
 
 And then, when we look at the simple interaction model to see which schools run the ball better (or worse) at night than during day games, we get these results:
 
