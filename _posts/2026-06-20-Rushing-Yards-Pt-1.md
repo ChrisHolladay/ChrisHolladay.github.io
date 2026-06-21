@@ -6,6 +6,7 @@ tags:
   - Blogging
   - Statistics
   - Analysis
+  - Football
 ---
 
 ## Rushing By Time of Day?
@@ -112,6 +113,15 @@ Things look about the same as the regression summary with the regular error esti
 I think this effect is weaker than I'd anticipated, but still nontrivial. It's nice to get to dig in and work on a model, even a basic one, for a little while, though. I'm a little surprised that UCF and Kansas State were in approximately the same neighborhood on hour-over-hour improvements to their YPC Z-scores as Texas Tech, and I'm curious whether that persists with the simple day/night indicator variable rather than a numeric variable that stretches over the whole day's range of potential kickoffs.
 
 Anyway, fun stuff! If I revisit this in the future, I think I may try to include some other way to account for the strength of the opposing team's rushing defense, and maybe a split by a sample of individual running backs, rather than just the entire teams themselves? Who knows. Have a good day!
+
+
+
+
+
+
+
+
+
 
 
 [^1]: I was never much of a college football fan, despite going to college back when my undergrad had one of the best offenses in the nation every year, but I picked up college football from my grandmother. She was a lifelong fan of the University of Texas Longhorns, and so I habitually root for UT as well, despite attending one of UT's two arch-rivals for my graduate school work (gig 'em!). 
