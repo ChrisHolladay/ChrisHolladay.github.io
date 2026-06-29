@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "On Plotting - The Magic of Moving Averages"
-description: "A quick graphical examination of moving averages as smoothers"
+title: "On Plotting - The Magic of Moving Averages Pt. II "
+description: "A quick graphical examination of discretizing and bucketing variance"
 tags:
   - Blogging
   - Statistics
