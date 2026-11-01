@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "On a D&D Tradition: A Statistical Analysis of the Effects of the Surface on Which Dice are Rolled"
+title: "On a Tabletop Gaming Tradition: A Statistical Analysis of the Effects of the Surface on Which Dice are Rolled"
 description: "An Analysis of an Old Gaming Superstition"
 tags:
   - Blogging
