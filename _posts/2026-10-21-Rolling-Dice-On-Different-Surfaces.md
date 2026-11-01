@@ -8,7 +8,7 @@ tags:
   - Analysis
 ---
 
-## On a D&D Tradition: A Statistical Analysis of the Effects of the Surface on Which Dice are Rolled
+## A Statistical Analysis of the Effects of the Surface on Which Dice are Rolled
 
 ### Background
 
